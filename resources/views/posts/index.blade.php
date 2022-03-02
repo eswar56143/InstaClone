@@ -7,7 +7,7 @@
             <div class="col-6 offset-3 p-2">
                 <div class="d-flex align-items-center ps-2">
                     <div class="pe-3">
-                        <img src="/storage/{{$post->user->profile->profileImage()}}" alt=""
+                        <img src="{{$post->user->profile->profileImage()}}" alt=""
                              class="rounded-circle w-100" style="max-width: 40px">
                     </div>
                     <div>
