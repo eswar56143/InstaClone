@@ -27,7 +27,9 @@
                     <div><img src="/svg/Insta.svg" style="height: 20px; padding-right: 10px; border-right: 1px solid #333" ></div>
                     <div style="max-height: 30px; padding: 2px 10px">Insta</div>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -53,23 +55,43 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->username }}
-                                </a>
+                            <div class="row">
+                                <div class="col-6 offset-3 ">
+                                    <div class="d-flex align-items-center ps-2">
+                                        <div class="">
+                                            <a href="/profile/{{Auth::user()->id}}" class="text-decoration-none">
+                                                <img src="{{Auth::user()->profile->profileImage()}}" alt="hi"
+                                                     class="rounded-circle"  style="max-height: 30px">
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <li class="nav-item dropdown">
+                                                <a id="navbarDropdown" class="nav-link dropdown-toggle"
+                                                   href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                   aria-expanded="false" v-pre>
+                                                    {{ Auth::user()->username }}
+                                                </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                                    <a href="/profile/{{Auth::user()->id}}" class="dropdown-item">Profile</a>
+
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                                        {{ __('Logout') }}
+                                                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                          class="d-none">
+                                                        @csrf
+                                                    </form>
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </div>
                                 </div>
-                            </li>
+                            </div>
                         @endguest
                     </ul>
                 </div>

@@ -10,8 +10,10 @@
             <div>
                 <div class="d-flex align-items-center">
                     <div class="pe-3">
-                        <img src="{{$post->user->profile->profileImage()}}" alt=""
-                             class="rounded-circle w-100" style="max-width: 40px">
+                        <a href="/profile/{{$post->user->id}}" class="text-decoration-none">
+                            <img src="{{$post->user->profile->profileImage()}}" alt=""
+                                 class="rounded-circle w-100" style="max-width: 40px">
+                        </a>
                     </div>
                     <div>
                         <div class="fw-bold ">

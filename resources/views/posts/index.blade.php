@@ -7,15 +7,16 @@
             <div class="col-6 offset-3 p-2">
                 <div class="d-flex align-items-center ps-2">
                     <div class="pe-3">
-                        <img src="{{$post->user->profile->profileImage()}}" alt=""
-                             class="rounded-circle w-100" style="max-width: 40px">
+                        <a href="/profile/{{$post->user->id}}" class="text-decoration-none">
+                            <img src="{{$post->user->profile->profileImage()}}" alt=""
+                                 class="rounded-circle w-100" style="max-width: 40px">
+                        </a>
                     </div>
                     <div>
                         <div class="fw-bold ">
                             <a href="/profile/{{$post->user->id}}" class="text-decoration-none">
                                 <span class="text-black">{{$post->user->username}}</span>
                             </a>
-                            <a href="#" class="p-3 text-decoration-none">Follow</a>
                         </div>
                     </div>
                 </div>
