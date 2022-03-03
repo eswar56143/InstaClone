@@ -19,6 +19,7 @@
     <li>Run "composer install" or "php composer.phar install" in the console</li>
     <li>Run "php artisan key:generate"</li>
     <li>Run "php artisan migrate"</li>
+    <li>Run "php artisan storage:link"</li>
     <li>Run "php artisan serve"</li>
     <li>Now you can access the project from the address provided by "php artisan serve" </li> 
 </ul>
