@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    <title>{{ config('app.name') }}</title>
+@endsection
 @section('content')
 <div class="container px-5">
     @foreach($posts as $post)

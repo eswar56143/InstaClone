@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    <title>{{ $post->user->name }} (@ {{$post->user->username}}) | Insta  </title>
+@endsection
 
 @section('content')
 <div class="container px-5">
