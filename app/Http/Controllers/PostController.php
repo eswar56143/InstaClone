@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Post;
+use App\Models\profile;
 use App\Models\User;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -14,10 +15,14 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    public function index() {
+    public function index(User $user) {
 
         $users = auth()->user()->following()->pluck('profiles.user_id');
         $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+        if ($posts->count() < 5) {
+            $users = User::all()->pluck('id');
+            $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+        }
         return view('posts.index', compact('posts'));
     }
 

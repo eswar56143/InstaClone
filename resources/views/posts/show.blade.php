@@ -6,7 +6,7 @@
 @section('content')
 <div class="container px-5">
     <div class="row">
-        <div class="col-8">
+        <div class="col-6">
             <image src="/storage/{{$post->image}}" class="w-100"/>
         </div>
         <div class="col-4">

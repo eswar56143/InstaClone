@@ -1,5 +1,8 @@
 @extends('layouts.app')
+@section('title')
     <title>Edit Profile | Insta  </title>
+@endsection
+
 @section('content')
 <div class="container px-5">
     <form action="/profile/{{$user->id}}" enctype="multipart/form-data" method="post">

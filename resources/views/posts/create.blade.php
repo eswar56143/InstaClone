@@ -1,5 +1,8 @@
 @extends('layouts.app')
+@section('title')
     <title>Create new post | Insta  </title>
+@endsection
+
 @section('content')
 <div class="container px-5">
     <form action="/p" enctype="multipart/form-data" method="post">
