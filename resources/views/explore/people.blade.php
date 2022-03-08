@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    <title>Edit Profile | Insta  </title>
+    <title>Explore people | Insta  </title>
 @endsection
 
 @section('content')
