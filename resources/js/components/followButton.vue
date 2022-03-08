@@ -1,13 +1,13 @@
 <template>
    <div>
-       <button class="btn btn-primary ms-4" @click="followUser" v-text="buttonText"></button>
+       <button v-bind:class="d" @click="followUser" v-text="buttonText"></button>
    </div>
 </template>
 
 <script>
     export default {
 
-        props: ['userId', 'follows'],
+        props: ['userId', 'follows', 'classData'],
 
 
         mounted() {
@@ -16,6 +16,7 @@
 
         data: function () {
             return {
+                d:this.classData,
                 status: this.follows,
             }
         },

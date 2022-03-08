@@ -9,17 +9,19 @@
            <img src="{{$user->profile->profileImage()}}" class="rounded-circle w-100" />
        </div>
        <div class="col-9 pt-5">
-            <div class="d-flex justify-content-between align- align-items-baseline">
+            <div class="d-flex justify-content-between  align-items-baseline">
                 <div class="d-flex align-items-center pb-3 ">
                     <div class="h4">{{$user->username}}</div>
-                    @if($user->id == auth()->user()->id)
-                        <button class="btn border ms-5 " >
-                            <a href="/profile/{{$user->id}}/edit"
-                               class="text-decoration-none link-dark "><b>Edit Profile</b></a>
-                        </button>
+                    @can('update', $user->profile)
+                        @if($user->id == auth()->user()->id)
+                            <button class="btn border ms-5 " >
+                                <a href="/profile/{{$user->id}}/edit"
+                                   class="text-decoration-none link-dark "><b>Edit Profile</b></a>
+                            </button>
+                        @endif
                     @else
-                        <follow-button user-id="{{$user->id}}" follows="{{$follows}}" ></follow-button>
-                    @endif
+                        <follow-button user-id="{{$user->id}}" follows="{{$follows}}" class-data="btn btn-primary ms-5"></follow-button>
+                    @endcan
                 </div>
 
                 @can('update', $user->profile)

@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index(User $user) {
 
         $users = auth()->user()->following()->pluck('profiles.user_id');
-        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(7);
         if ($posts->count() < 5) {
             $users = User::all()->pluck('id');
             $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);

@@ -5371,12 +5371,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['userId', 'follows'],
+  props: ['userId', 'follows', 'classData'],
   mounted: function mounted() {
     console.log('Component mounted.');
   },
   data: function data() {
     return {
+      d: this.classData,
       status: this.follows
     };
   },
@@ -28012,7 +28013,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("button", {
-      staticClass: "btn btn-primary ms-4",
+      class: _vm.d,
       domProps: { textContent: _vm._s(_vm.buttonText) },
       on: { click: _vm.followUser },
     }),

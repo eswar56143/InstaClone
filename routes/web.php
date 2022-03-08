@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\ExplorerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use \App\Http\Controllers\FollowsController;
@@ -26,6 +28,8 @@ Route::post('/p',[PostController::class,'store']);
 Route::get('/p/{post}',[PostController::class,'show']);
 
 Route::post('follow/{user}', [FollowsController::class, 'store']);
+
+Route::get('/explore/people', [ExplorerController::class, 'people']);
 
 Auth::routes();
 
