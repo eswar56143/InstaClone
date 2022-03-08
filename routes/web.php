@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\ExplorerController;
+use App\Http\Controllers\ProfilesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use \App\Http\Controllers\FollowsController;
@@ -33,9 +34,13 @@ Route::get('/explore/people', [ExplorerController::class, 'people']);
 
 Auth::routes();
 
-Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
-Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile.edit');
-Route::patch('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile.update');
+Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
+Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profile.update');
+
+Route::get('/profile/{user}/followers', [FollowsController::class, 'followers'])->name('profile.followers');
+Route::get('/profile/{user}/following', [FollowsController::class, 'following'])->name('profile.following');
+
 
 
 
