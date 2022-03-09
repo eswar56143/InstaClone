@@ -22,7 +22,7 @@
 <body class="bg-light">
     <div id="app">
         <nav class="navbar sticky-top navbar-expand-md navbar-light bg-white shadow-sm ">
-            <div class="container col-8">
+            <div class="container offset-2 col-8">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
                     <div><img src="/svg/Insta.svg"
                               style="height: 20px; padding-right: 10px; border-right: 1px solid #333" >

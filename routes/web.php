@@ -29,6 +29,7 @@ Route::post('/p',[PostController::class,'store']);
 Route::get('/p/{post}',[PostController::class,'show']);
 
 Route::post('follow/{user}', [FollowsController::class, 'store']);
+Route::delete('follow/{follower}', [FollowsController::class, 'remove']);
 
 Route::get('/explore/people', [ExplorerController::class, 'people']);
 
@@ -40,6 +41,7 @@ Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('pr
 
 Route::get('/profile/{user}/followers', [FollowsController::class, 'followers'])->name('profile.followers');
 Route::get('/profile/{user}/following', [FollowsController::class, 'following'])->name('profile.following');
+//Route::delete('/profile/{user}', [FollowsController::class, 'remove'])->name('profile.remove');
 
 
 

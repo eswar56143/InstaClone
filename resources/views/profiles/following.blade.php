@@ -4,6 +4,5 @@
 @endsection
 
 @section('content')
-
     @include('layouts.profilesList')
 @endsection

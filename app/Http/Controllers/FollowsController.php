@@ -21,30 +21,33 @@ class FollowsController extends Controller
 
     public function followers(User $user) {
         $followers = $user->profile->followers()->pluck('user_id');
-        $following = $user->following()->pluck('profiles.user_id');
-
-//        dd($this->followers);
+        $name = 'followers';
 
         $profiles = profile::whereIn('id', $followers)->get();
 
 
         return view('profiles.followers',
-            compact('user', 'profiles')
+            compact('user', 'profiles', 'name')
         );
     }
 
     public function following(user $user ) {
-        $followers = $user->profile->followers()->pluck('user_id');
         $following = $user->following()->pluck('profiles.user_id');
-
-//        dd($this->followers);
-
+        $name = 'following';
         $profiles = profile::whereIn('id', $following)->get();
 
-        $follows = true;
+        $follows = false;
 
-        return view('profiles.followers',
-            compact('user', 'profiles', 'follows')
+        return view('profiles.following',
+            compact('user', 'profiles', 'follows', 'name')
         );
+    }
+
+    public function remove(User $follower) {
+        $response = $follower->following()->toggle(auth()->user()->profile);
+        $followers = auth()->user()->profile->followers()->pluck('user_id');
+
+        return redirect('/profile/'.auth()->user()->id.'/followers');
+
     }
 }
