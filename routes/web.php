@@ -44,5 +44,3 @@ Route::get('/profile/{user}/following', [FollowsController::class, 'following'])
 //Route::delete('/profile/{user}', [FollowsController::class, 'remove'])->name('profile.remove');
 
 
-
-

@@ -1,13 +1,13 @@
 <template>
    <div>
-       <button v-bind:class="d" @click="followUser" v-text="buttonText"></button>
+       <button v-bind:class="d1"  v-bind:style="styleData" @click="followUser" v-text="buttonText"></button>
    </div>
 </template>
 
 <script>
     export default {
 
-        props: ['userId', 'follows', 'classData'],
+        props: ['userId', 'follows', 'classData','msg'],
 
 
         mounted() {
@@ -16,7 +16,11 @@
 
         data: function () {
             return {
-                d:this.classData,
+                style: {
+                    color:'blue',
+                    border:'none'
+                },
+                d1:this.classData,
                 status: this.follows,
             }
         },
@@ -36,8 +40,14 @@
         },
 
         computed: {
+
             buttonText() {
                 return this.status ? 'unfollow' : 'Follow';
+            },
+            styleData( ){
+                if (this.msg == 'post'){
+                    return this.style;
+                }
             }
         }
 

@@ -5371,13 +5371,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['userId', 'follows', 'classData'],
+  props: ['userId', 'follows', 'classData', 'msg'],
   mounted: function mounted() {
     console.log('Component mounted.');
   },
   data: function data() {
     return {
-      d: this.classData,
+      style: {
+        color: 'blue',
+        border: 'none'
+      },
+      d1: this.classData,
       status: this.follows
     };
   },
@@ -5398,6 +5402,11 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     buttonText: function buttonText() {
       return this.status ? 'unfollow' : 'Follow';
+    },
+    styleData: function styleData() {
+      if (this.msg == 'post') {
+        return this.style;
+      }
     }
   }
 });
@@ -28013,7 +28022,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("button", {
-      class: _vm.d,
+      class: _vm.d1,
+      style: _vm.styleData,
       domProps: { textContent: _vm._s(_vm.buttonText) },
       on: { click: _vm.followUser },
     }),
