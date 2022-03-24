@@ -16,6 +16,7 @@
                                              class="rounded-circle w-100" style="max-width: 50px">
                                     </a>
                                 </div>
+
                                 <div>
                                     <div class="fw-bold">
                                         <a href="/profile/{{$post->user->id}}" class="text-decoration-none">
@@ -27,7 +28,7 @@
                         </div>
                         <div class="row">
                             <a href="/profile/{{$post->user->id}}">
-                                <image src="/storage/{{$post->image}}" class="w-100"></image>
+                                <image src="/storage/{{$post->image}}" class="w-100 border-bottom border-top"></image>
                             </a>
                         </div>
                         <div class="row">
