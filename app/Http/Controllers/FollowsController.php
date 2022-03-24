@@ -36,7 +36,7 @@ class FollowsController extends Controller
         $name = 'following';
         $profiles = profile::whereIn('id', $following)->get();
 
-        $follows = false;
+        $follows = true;
 
         return view('profiles.following',
             compact('user', 'profiles', 'follows', 'name')

@@ -4,5 +4,12 @@
 @endsection
 
 @section('content')
-    @include('layouts.profilesList')
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-6 offset-3 py-2">
+                <b>following</b>
+            </div>
+            @include('layouts.profilesList')
+        </div>
+    </div>
 @endsection

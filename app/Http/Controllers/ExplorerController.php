@@ -20,9 +20,9 @@ class ExplorerController extends Controller
         $profiles = profile::whereNotIn('id', $following)->where('id', '<>', $user->id)->get();
 
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
-
+        $name = 'suggestions';
         return view('explore.people',
-            compact('user', 'profiles', 'follows')
+            compact('user', 'profiles', 'follows','name')
         );
     }
 }

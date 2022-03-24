@@ -11,24 +11,9 @@ class ProfilesController extends Controller
 {
     public function index(User $user): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        $postsCount = Cache::remember(
-            'count.posts.'. $user->id,
-            now()->addSeconds(30),
-            function () use ($user){
-                return $user->posts->count();
-            });
-        $followersCount= Cache::remember(
-            'count.followers.'. $user->id,
-            now()->addSeconds(30),
-            function () use ($user){
-                return $user->profile->followers->count();
-            });
-        $followingCount = Cache::remember(
-            'count.following.'. $user->id,
-            now()->addSeconds(30),
-            function () use ($user){
-                return $user->following->count();
-            });
+        $postsCount = $user->posts->count();
+        $followersCount= $user->profile->followers->count();
+        $followingCount = $user->following->count();
 
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
