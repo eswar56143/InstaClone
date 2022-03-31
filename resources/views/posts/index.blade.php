@@ -102,13 +102,46 @@
                                 </a>
                             </div>
                             <div class="more">
-                                <i class="fa-solid fa-ellipsis"></i>
+                                <a href="#" class="text-black">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </a>
                             </div>
                         </div>
                         <div class="post-img">
                             <a href="/profile/{{$post->user->id}}">
                                 <image src="/storage/{{$post->image}}" class="border-bottom border-top"></image>
                             </a>
+                        </div>
+                        <div class="post-content">
+                            <section class="post-response d-flex">
+                                <button type="button"><i class="fa-regular fa-heart"></i></button>
+                                <button type="button"><i class="fa-regular fa-comment"></i></button>
+                                <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
+                                <div class="save">
+                                    <button type="button"><i class="fa-regular fa-bookmark"></i></button>
+                                </div>
+                            </section>
+                            <section class="likes">
+                                <span>1024 likes</span>
+                            </section>
+                            <section class="post-caption">
+                                <span class="fw-bold ">
+                                    <a href="/profile/{{$post->user->id}}" class="text-decoration-none">
+                                        <span class="text-black pe-2">{{$post->user->username}}</span>
+                                    </a>
+                                </span>{{$post->caption}}
+                            </section>
+                            <section class="post-comment d-flex">
+                                <div class="smile">
+                                    <span><i class="fa-regular fa-smile"></i></span>
+                                </div>
+                                <div class="text">
+                                    <input type="text" placeholder="Add a Comment">
+                                </div>
+                                <div class="post-b">
+                                    <button type="button">Post</button>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 @endforeach

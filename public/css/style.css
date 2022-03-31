@@ -128,6 +128,7 @@ body {
     display: grid;
     grid-template-columns: 620px 300px;
     grid-template-rows: auto;
+    row-gap: 0;
 }
 .status-container {
     grid-column: 1;
@@ -258,8 +259,10 @@ body {
     grid-row: 2;
     width: 100%;
     max-width: 620px;
+}
+.posts-container .post {
     border: 1px solid rgb(219,219,219);
-
+    margin-top: 1.5em;
 }
 .posts-container .user-details {
     background-color: white;
@@ -281,10 +284,76 @@ body {
     font-weight: bold;
     margin-left: 10px;
 }
-.post-img img{
+.posts-container .user-details .more {
+    background-color: white;
+    margin-left: auto;
+    margin-right: 5px;
+    font-size: 1.5em;
+}
+.posts-container .post-img img{
     width: 100%;
     max-width: 620px;
     max-height: 750px;
     overflow: hidden;
     object-fit: contain;
+}
+.posts-container .post-content {
+    background-color: white;
+    height: 100%;
+    max-height: 215px;
+    align-content: center;
+}
+.posts-container .post-content .post-response {
+    padding: 10px;
+    height: 54px;
+}
+.post-response button {
+    border: none;
+    background: none;
+    width: 40px;
+    height: 40px;
+}
+.post-response i{
+    font-size: 1.6em;
+    margin-right: 10px;
+    font-stretch: 100%;
+}
+.post-response .save {
+    margin-right: 0;
+    margin-left: auto;
+}
+.posts-container .post-content .likes {
+    padding: 0 15px;
+}
+.posts-container .post-content .post-caption {
+    padding: 0 15px;
+}
+.posts-container .post-content .post-comment {
+    padding: 15px;
+    align-items: center;
+    height: 53px;
+    border-top: 1px solid rgb(219,219,219);
+}
+.post-comment span {
+    height: inherit;
+    font-size: 1.6em;
+}
+.post-comment .post-b {
+    margin-left: auto;
+    margin-right: 0px;
+}
+.post-comment .text {
+    width: 500px;
+    margin-left: 10px;
+
+}
+.post-comment .text input {
+    width: 100%;
+    outline: none;
+    border: none;
+}
+.post-comment .post-b button {
+    color: dodgerblue;
+    border: none;
+    background: none;
 }
