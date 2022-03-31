@@ -19,12 +19,13 @@ class PostController extends Controller
 
         $users = auth()->user()->following()->pluck('profiles.user_id');
         $profiles = profile::wherein('id',$users)->get();
+        $s_profiles = profile::whereNotIn('id',$users)->where('id', '<>', auth()->user()->id)->paginate(5);
         $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(7);
         if ($posts->count() < 5) {
             $users = User::all()->pluck('id');
             $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
         }
-        return view('posts.index', compact('posts','profiles'));
+        return view('posts.index', compact('posts','profiles','s_profiles'));
     }
 
     public function create(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application

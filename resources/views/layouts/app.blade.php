@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,12 +25,14 @@
 <body class="bg-light">
     <div id="app">
         <nav class="navbar">
-            <div class="container">
-                <a class="navbar-brand d-flex" href="{{ url('/') }}">
-                    <div><img src="/svg/Insta.svg" class="nav-logo">
-                    </div>
-                    <div class="nav-heading">Insta</div>
-                </a>
+            <div class="nav-container">
+                <div class="nav-header">
+                    <a class="navbar-brand d-flex" href="{{ url('/') }}">
+                        <div><img src="/svg/Insta.svg" class="nav-logo">
+                        </div>
+                        <div class="nav-heading">Insta</div>
+                    </a>
+                </div>
                 @guest()
                     <div class="nav-items">
                         @if (Route::has('login'))
@@ -62,10 +65,12 @@
                         </a>
                         <div class="dropdown">
                             <img src="{{Auth::user()->profile->profileImage()}}" alt="hi"
-                                 class="rounded-circle"  style="max-height: 30px" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                 class="rounded-circle"  style="max-height: 25px" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                                  aria-expanded="true">
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                <a href="/profile/{{Auth::user()->id}}" class="dropdown-item mb-2"><i class="fa-regular fa-circle-user"></i> <span>Profile</span></a>
+                                <a href="/profile/{{Auth::user()->id}}" class="dropdown-item mb-2">
+                                    <i class="fa-regular fa-circle-user"></i> <span>Profile</span>
+                                </a>
                                 <a class="dropdown-item border-top mt-1" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -83,7 +88,7 @@
             </div>
         </nav>
 
-        <main class=" bg-light">
+        <main class="bg-light">
             @yield('content')
         </main>
     </div>

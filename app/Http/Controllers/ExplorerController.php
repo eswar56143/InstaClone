@@ -15,7 +15,6 @@ class ExplorerController extends Controller
 
     public function people() {
         $user = auth()->user();
-        $followers = auth()->user()->profile->followers()->pluck('user_id');
         $following = auth()->user()->following()->pluck('profiles.user_id');
         $profiles = profile::whereNotIn('id', $following)->where('id', '<>', $user->id)->get();
 
