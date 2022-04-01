@@ -1,13 +1,47 @@
-function addClass() {
-    const windowSize = $(window).width();
-    alert("hello");
-    if (windowSize < 1000) {
-        alert("hi");
-        $('.posts-container').removeClass('container');
+let buttonLeft = document.getElementById('left');
+let buttonRight = document.getElementById('right');
+let slider = document.getElementsByClassName('profile')
+let profiles = document.getElementsByClassName('profile-content')
+
+let w = 80*(profiles.length-4);
+let l = 0;
+let movePer = 4*80;
+let maxMove = w;
+buttonLeft.style.display = "none";
+let right_mover = ()=>{
+    console.log(w/7);
+    l = l + movePer;
+    if (slider == 1){
+        l = 0;
+        buttonLeft.style.display = 'none';
     }
-    else {
-        $('.status-container').removeClass('container');
+    if (l >= maxMove) {
+        buttonRight.style.display = 'none';
+    }
+    for(const i of slider)
+    {
+        if (l > maxMove){
+            l = l - movePer;
+        }
+        i.style.left = '-' + (l+18) + 'px';
+    }
+    if (buttonLeft.style.display = "none") {
+        buttonLeft.style.display = "block"
     }
 }
-window.addEventListener("resize",addClass);
-addClass();
+let left_mover = ()=>{
+    l = l - movePer;
+    if (l<=0){
+        l = 0;
+        buttonLeft.style.display = "none"
+    }
+    for(const i of slider){
+        i.style.left = '-' + (l+18) + 'px';
+    }
+    if (buttonRight.style.display = "none") {
+        buttonRight.style.display = "block"
+    }
+}
+
+buttonRight.onclick = ()=>{right_mover();}
+buttonLeft.onclick = ()=>{left_mover();}

@@ -5,19 +5,12 @@
 @section('content')
     <div class="home-container">
         <div class="all">
-            <div class="status-container">
-                <div class="profile d-flex">
-                    @foreach($profiles as $profile)
-                        <div class="profile-content">
-                            <a href="/profile/{{$profile->user->id}}" class="text-decoration-none">
-                                <div class="profile-img">
-                                    <img src="{{$profile->profileImage()}}" alt=""
-                                         class="rounded-circle">
-                                </div>
-                                <p class="username text-black">{{$profile->user->username}}</p>
-                            </a>
-                        </div>
-                    @endforeach
+            <div class="status-container d-flex">
+                <div class="left" id="left">
+                    <i class="fa-solid fa-circle-chevron-left"></i>
+                </div>
+                <div class="profile-wrapper">
+                    <div class="profile">
                         @foreach($profiles as $profile)
                             <div class="profile-content">
                                 <a href="/profile/{{$profile->user->id}}" class="text-decoration-none">
@@ -29,6 +22,65 @@
                                 </a>
                             </div>
                         @endforeach
+                        @foreach($profiles as $profile)
+                            <div class="profile-content">
+                                <a href="/profile/{{$profile->user->id}}" class="text-decoration-none">
+                                    <div class="profile-img">
+                                        <img src="{{$profile->profileImage()}}" alt=""
+                                             class="rounded-circle">
+                                    </div>
+                                    <p class="username text-black">{{$profile->user->username}}</p>
+                                </a>
+                            </div>
+                        @endforeach
+                        @foreach($profiles as $profile)
+                            <div class="profile-content">
+                                <a href="/profile/{{$profile->user->id}}" class="text-decoration-none">
+                                    <div class="profile-img">
+                                        <img src="{{$profile->profileImage()}}" alt=""
+                                             class="rounded-circle">
+                                    </div>
+                                    <p class="username text-black">{{$profile->user->username}}</p>
+                                </a>
+                            </div>
+                        @endforeach
+                            @foreach($profiles as $profile)
+                                <div class="profile-content">
+                                    <a href="/profile/{{$profile->user->id}}" class="text-decoration-none">
+                                        <div class="profile-img">
+                                            <img src="{{$profile->profileImage()}}" alt=""
+                                                 class="rounded-circle">
+                                        </div>
+                                        <p class="username text-black">{{$profile->user->username}}</p>
+                                    </a>
+                                </div>
+                            @endforeach
+                        @foreach($profiles as $profile)
+                            <div class="profile-content">
+                                <a href="/profile/{{$profile->user->id}}" class="text-decoration-none">
+                                    <div class="profile-img">
+                                        <img src="{{$profile->profileImage()}}" alt=""
+                                             class="rounded-circle">
+                                    </div>
+                                    <p class="username text-black">{{$profile->user->username}}</p>
+                                </a>
+                            </div>
+                        @endforeach
+                        @foreach($profiles as $profile)
+                            <div class="profile-content">
+                                <a href="/profile/{{$profile->user->id}}" class="text-decoration-none">
+                                    <div class="profile-img">
+                                        <img src="{{$profile->profileImage()}}" alt=""
+                                             class="rounded-circle">
+                                    </div>
+                                    <p class="username text-black">{{$profile->user->username}}</p>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="right" id="right">
+                    <i class="fa-solid fa-circle-chevron-right"></i>
                 </div>
             </div>
             <div class="side-container">
