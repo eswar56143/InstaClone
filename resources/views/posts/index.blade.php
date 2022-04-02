@@ -55,6 +55,17 @@
                                     </a>
                                 </div>
                             @endforeach
+                            @foreach($profiles as $profile)
+                                <div class="profile-content">
+                                    <a href="/profile/{{$profile->user->id}}" class="text-decoration-none">
+                                        <div class="profile-img">
+                                            <img src="{{$profile->profileImage()}}" alt=""
+                                                 class="rounded-circle">
+                                        </div>
+                                        <p class="username text-black">{{$profile->user->username}}</p>
+                                    </a>
+                                </div>
+                            @endforeach
                         @foreach($profiles as $profile)
                             <div class="profile-content">
                                 <a href="/profile/{{$profile->user->id}}" class="text-decoration-none">

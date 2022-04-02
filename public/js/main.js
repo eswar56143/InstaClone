@@ -6,15 +6,11 @@ let profiles = document.getElementsByClassName('profile-content')
 let w = 80*(profiles.length-4);
 let l = 0;
 let movePer = 4*80;
-let maxMove = w;
+let maxMove = w-80;
 buttonLeft.style.display = "none";
 let right_mover = ()=>{
-    console.log(w/7);
     l = l + movePer;
-    if (slider == 1){
-        l = 0;
-        buttonLeft.style.display = 'none';
-    }
+
     if (l >= maxMove) {
         buttonRight.style.display = 'none';
     }
@@ -25,7 +21,7 @@ let right_mover = ()=>{
         }
         i.style.left = '-' + (l+18) + 'px';
     }
-    if (buttonLeft.style.display = "none") {
+    if (buttonLeft.style.display === "none") {
         buttonLeft.style.display = "block"
     }
 }
@@ -38,7 +34,7 @@ let left_mover = ()=>{
     for(const i of slider){
         i.style.left = '-' + (l+18) + 'px';
     }
-    if (buttonRight.style.display = "none") {
+    if (buttonRight.style.display === "none") {
         buttonRight.style.display = "block"
     }
 }
